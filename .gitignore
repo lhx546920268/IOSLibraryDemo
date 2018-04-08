@@ -60,4 +60,7 @@ fastlane/test_output
 # After new code Injection tools there's a generated folder /iOSInjectionProject
 # https://github.com/johnno1962/injectionforxcode
 
+#mac osx
+.DS_Store
+
 iOSInjectionProject/

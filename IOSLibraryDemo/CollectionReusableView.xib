@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y9W-tR-IZQ">
+                    <rect key="frame" x="0.0" y="22.5" width="320" height="5"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="5" id="LuV-Uo-hnS"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wX4-e7-Y3g">
+                    <rect key="frame" x="-15" y="40" width="46" height="30"/>
+                    <color key="backgroundColor" red="0.98899263140000004" green="0.85649609569999996" blue="0.2605413198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="Button"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Y9W-tR-IZQ" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="6jX-Qs-YCI"/>
+                <constraint firstAttribute="bottom" secondItem="wX4-e7-Y3g" secondAttribute="bottom" constant="-20" id="HIk-GW-i2b"/>
+                <constraint firstItem="wX4-e7-Y3g" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="-15" id="a3f-kp-Xeg"/>
+                <constraint firstItem="Y9W-tR-IZQ" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="ccM-TX-yxG"/>
+                <constraint firstAttribute="trailing" secondItem="Y9W-tR-IZQ" secondAttribute="trailing" id="fgI-WN-i5F"/>
+            </constraints>
+        </collectionReusableView>
+    </objects>
+</document>
