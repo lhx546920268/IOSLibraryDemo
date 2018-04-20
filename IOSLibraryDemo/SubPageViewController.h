@@ -7,10 +7,12 @@
 //
 
 #import <IOSLibrary.h>
+#import "CustomTableView.h"
+#import "PageViewController.h"
 
-@interface SubPageViewController : SeaViewController
+@interface SubPageViewController : SeaTableViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *label;
+@property(nonatomic, weak) PageViewController *pageViewController;
 
 @property (nonatomic, assign) NSInteger index;
 

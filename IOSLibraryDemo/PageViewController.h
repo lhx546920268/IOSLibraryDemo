@@ -7,7 +7,13 @@
 //
 
 #import <IOSLibrary/IOSLibrary.h>
+#import "NestedTableViewController.h"
+
 
 @interface PageViewController : SeaPageViewController
+
+@property(nonatomic, weak) NestedTableViewController *nestedTableViewController;
+
+@property(nonatomic, readonly) UIScrollView *currentScrollView;
 
 @end

@@ -18,56 +18,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Do any additional setup after loading the view from its nib.
-    self.label.userInteractionEnabled = YES;
-    [self.label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)]];
+    [self initialization];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+/**初始化视图 子类必须调用该方法
+ */
+- (void)initialization
 {
-    [super viewDidAppear:animated];
+    [self registerClass:[UITableViewCell class]];
     
-    self.label.text = [NSString stringWithFormat:@"第%d个", (int)self.index + 1];
+    [super initialization];
 }
 
-- (void)handleTap:(id) sender
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    animation.duration = 1;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-    animation.repeatCount = HUGE_VAL;
-    
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    CGPoint point = self.label.center;
-    [path moveToPoint:point];
-    [path addQuadCurveToPoint:CGPointMake(point.x + 100, point.y) controlPoint:CGPointMake(point.x + 50, point.y - 200)];
-//    [path addCurveToPoint:point controlPoint1:CGPointMake(point.x + 100, point.y - 200) controlPoint2:CGPointMake(point.x + 200, point.y)];
-    animation.path = path.CGPath;
-    
-    CAShapeLayer *layer = [CAShapeLayer layer];
-    layer.path = path.CGPath;
-    layer.lineWidth = 2;
-    layer.strokeColor = [UIColor redColor].CGColor;
-    layer.fillColor = [UIColor clearColor].CGColor;
-    layer.frame = self.view.bounds;
-    [self.view.layer addSublayer:layer];
-    
-    [self.label.layer addAnimation:animation forKey:@""];
+    [self.pageViewController.nestedTableViewController scrollViewDidScroll:scrollView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self.pageViewController.nestedTableViewController scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    [self.pageViewController.nestedTableViewController scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
 }
-*/
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self.pageViewController.nestedTableViewController scrollViewDidEndDecelerating:scrollView];
+}
+
+- (void)emptyViewWillAppear:(SeaEmptyView *)view
+{
+    if(![NSString isEmpty:self.title]){
+        view.textLabel.text = [NSString stringWithFormat:@"暂无%@信息", self.title];
+    }else{
+        view.textLabel.text = @"暂无信息";
+    }
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 30;
+}
+
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[UITableViewCell sea_nameOfClass] forIndexPath:indexPath];
+    cell.textLabel.text = [NSString stringWithFormat:@"第%ld个", indexPath.row];
+    
+    return cell;
+}
 
 @end

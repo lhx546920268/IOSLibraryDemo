@@ -23,6 +23,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "LargeImageViewController.h"
 #import "WebViewJSViewController.h"
+#import "EmptyViewController.h"
+#import "NestedTableViewController.h"
+#import "CustomTableView.h"
 
 @interface RootViewController ()<UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -55,12 +58,19 @@
                     @"actionSheet",
                     @"alert",
                     @"banner",
-                    @"大图，长图"];
+                    @"大图，长图",
+                    @"空视图",
+                    @"嵌套scrollView"];
     
     [self registerClass:[UITableViewCell class]];
     [self initialization];
     
     [self sea_setRightItemWithTitle:@"弹窗" action:@selector(popover)];
+}
+
+- (void)emptyViewWillAppear:(SeaEmptyView *)view
+{
+    view.textLabel.text = @"没数据";
 }
 
 - (void)popover
@@ -90,6 +100,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+//    NSLog(@"%@", NSStringFromCGPoint(scrollView.contentOffset));
+//    NSLog(@"%@", NSStringFromCGPoint(velocity));
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+//    NSLog(@"%@", NSStringFromCGPoint(scrollView.contentOffset));
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.titles.count;
@@ -103,6 +124,16 @@
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return CGFLOAT_MIN;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,7 +196,7 @@
         }
             break;
         case 12 : {
-            SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:nil message:@"actionSheet信息" icon:[UIImage imageNamed:@"icon"] style:SeaAlertControllerStyleActionSheet cancelButtonTitle:@"取消" otherButtonTitles:@"相册", @"拍照", nil];
+            SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:nil message:@"actionSheet信息" icon:[UIImage imageNamed:@"icon"] style:SeaAlertControllerStyleActionSheet cancelButtonTitle:@"取消" otherButtonTitles:@[@"相册", @"拍照"]];
             
             __weak SeaAlertController *weakAlert = alert;
             WeakSelf(self);
@@ -185,7 +216,7 @@
             break;
         case 13 : {
             
-            SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:@"Alert标题" message:@"Alert信息" icon:[UIImage imageNamed:@"icon"] style:SeaAlertControllerStyleAlert cancelButtonTitle:nil otherButtonTitles:@"相册", @"拍照", nil];
+            SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:@"Alert标题" message:@"Alert信息" icon:[UIImage imageNamed:@"icon"] style:SeaAlertControllerStyleAlert cancelButtonTitle:nil otherButtonTitles:@[@"相册", @"拍照"]];
             
             __weak SeaAlertController *weakAlert = alert;
             WeakSelf(self);
@@ -213,6 +244,14 @@
             break;
         case 15 : {
             [self sea_pushViewControllerUseTransitionDelegate:[LargeImageViewController new]];
+        }
+            break;
+        case 16 : {
+            [self sea_pushViewControllerUseTransitionDelegate:[EmptyViewController new]];
+        }
+            break;
+        case 17 : {
+            [self sea_pushViewControllerUseTransitionDelegate:[NestedTableViewController new]];
         }
             break;
         default:

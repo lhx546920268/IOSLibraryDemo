@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.showAnimate = SeaDialogAnimateUpDown;
-    self.dismissAnimate = SeaDialogAnimateUpDown;
+    self.showAnimate = SeaDialogAnimateFromTop;
+    self.dismissAnimate = SeaDialogAnimateFromTop;
     Dialog *dialog = [Dialog new];
     [self.view addSubview:dialog];
     [dialog sea_widthToSelf:240];
