@@ -26,6 +26,7 @@
 #import "EmptyViewController.h"
 #import "NestedTableViewController.h"
 #import "CustomTableView.h"
+#import "HitTestViewController.h"
 
 @interface RootViewController ()<UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -60,7 +61,8 @@
                     @"banner",
                     @"大图，长图",
                     @"空视图",
-                    @"嵌套scrollView"];
+                    @"嵌套scrollView",
+                    @"hit test 测试"];
     
     [self registerClass:[UITableViewCell class]];
     [self initialization];
@@ -252,6 +254,10 @@
             break;
         case 17 : {
             [self sea_pushViewControllerUseTransitionDelegate:[NestedTableViewController new]];
+        }
+            break;
+        case 18 : {
+            [self sea_pushViewControllerUseTransitionDelegate:[HitTestViewController new]];
         }
             break;
         default:

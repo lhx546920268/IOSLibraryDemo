@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1003F5F62044FD4C0097325F /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003F5F42044FD4C0097325F /* BannerViewController.m */; };
 		1003F5F72044FD4C0097325F /* BannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1003F5F52044FD4C0097325F /* BannerViewController.xib */; };
+		103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */; };
 		1044A78A202163FD00679F9B /* FillLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1044A789202163FD00679F9B /* FillLayoutViewController.m */; };
 		104665FF20070B98006E7736 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104665FE20070B98006E7736 /* PageViewController.m */; };
 		1046660320070BDD006E7736 /* SubPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1046660120070BDD006E7736 /* SubPageViewController.m */; };
@@ -45,6 +46,8 @@
 		1003F5F32044FD4C0097325F /* BannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		1003F5F42044FD4C0097325F /* BannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		1003F5F52044FD4C0097325F /* BannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerViewController.xib; sourceTree = "<group>"; };
+		103B00DB208F2E5D00DE97C9 /* HitTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitTestViewController.h; sourceTree = "<group>"; };
+		103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitTestViewController.m; sourceTree = "<group>"; };
 		1044A788202163FD00679F9B /* FillLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FillLayoutViewController.h; sourceTree = "<group>"; };
 		1044A789202163FD00679F9B /* FillLayoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FillLayoutViewController.m; sourceTree = "<group>"; };
 		104665FD20070B98006E7736 /* PageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				10BD7F5E207EF4AC0097F910 /* NestedTableViewController.m */,
 				10B03BB0207F64B0001856D5 /* CustomTableView.h */,
 				10B03BB1207F64B0001856D5 /* CustomTableView.m */,
+				103B00DB208F2E5D00DE97C9 /* HitTestViewController.h */,
+				103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */,
 			);
 			path = IOSLibraryDemo;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				104FD6142016E64900568B82 /* TransitionViewController.m in Sources */,
 				1068E33820088DFE00707D11 /* DropDownMenuViewController.m in Sources */,
 				10C27442207B005900BC13EF /* EmptyViewController.m in Sources */,
+				103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */,
 				109D7F2A20492D000050D1F7 /* LargeImageViewController.m in Sources */,
 				10772EEA2011BFD700CD47BE /* TabBar2ViewController.m in Sources */,
 				1046660320070BDD006E7736 /* SubPageViewController.m in Sources */,
