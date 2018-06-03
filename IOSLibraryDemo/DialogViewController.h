@@ -8,6 +8,6 @@
 
 #import <IOSLibrary/IOSLibrary.h>
 
-@interface DialogViewController : SeaDialogViewController
+@interface DialogViewController : SeaViewController
 
 @end

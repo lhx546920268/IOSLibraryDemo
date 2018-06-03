@@ -18,13 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.showAnimate = SeaDialogAnimateFromTop;
-    self.dismissAnimate = SeaDialogAnimateFromTop;
+    self.dialogShowAnimate = SeaDialogAnimateFromTop;
+    self.dialogDismissAnimate = SeaDialogAnimateFromTop;
     Dialog *dialog = [Dialog new];
-    [self.view addSubview:dialog];
-    [dialog sea_widthToSelf:240];
-    [dialog sea_centerInSuperview];
-    self.dialog = dialog;
+    [self.dialog addSubview:dialog];
+    [dialog sea_insetsInSuperview:UIEdgeInsetsZero];
+    [self.dialog sea_widthToSelf:240];
+    [self.dialog sea_centerInSuperview];
     
     [dialog.cancel_btn addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -32,7 +32,7 @@
 - (void)cancel
 {
     if(self.keyboardHidden){
-         [self dismiss];
+         [self dismissDialog];
     }else{
         [[UIApplication sharedApplication].keyWindow endEditing:YES];
     }

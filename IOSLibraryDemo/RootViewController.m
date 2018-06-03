@@ -27,6 +27,7 @@
 #import "NestedTableViewController.h"
 #import "CustomTableView.h"
 #import "HitTestViewController.h"
+#import <SeaToast.h>
 
 @interface RootViewController ()<UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -168,7 +169,7 @@
         case 5 : {
             
             DialogViewController *dialogVC = [DialogViewController new];
-            [dialogVC show];
+            [dialogVC showAsDialog];
         }
             break;
         case 6 : {
@@ -190,6 +191,7 @@
         case 10 : {
 //            [self sea_alertMsg:@"这是一个小提示框"];
 //            [self sea_alertMsg:nil icon:[UIImage imageNamed:@"icon"]];
+            [SeaToastStyle sharedInstance].offset = 30;
             [self sea_alertMsg:@"这是一个小提示框" icon:[UIImage imageNamed:@"icon"]];
         }
             break;
@@ -198,7 +200,18 @@
         }
             break;
         case 12 : {
-            SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:nil message:@"actionSheet信息" icon:[UIImage imageNamed:@"icon"] style:SeaAlertControllerStyleActionSheet cancelButtonTitle:@"取消" otherButtonTitles:@[@"相册", @"拍照"]];
+            SeaAlertStyle *style = [SeaAlertStyle actionSheetInstance];
+            style.buttonTextColor = [UIColor blackColor];
+            style.cornerRadius = 0;
+            style.contentInsets = UIEdgeInsetsMake(10, 0, 0, 0);
+            style.cancelButtonVerticalSpacing = 8;
+            style.spacingBackgroundColor = [UIColor colorWithWhite:1.0 alpha:0.9];
+            
+            NSMutableArray *actions = [NSMutableArray array];
+            [actions addObject:[SeaAlertAction alertActionWithTitle:@"相册" icon:[UIImage imageNamed:@"icon"]]];
+            [actions addObject:[SeaAlertAction alertActionWithTitle:@"拍照" icon:[UIImage imageNamed:@"icon"]]];
+            
+            SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:nil message:nil icon:nil style:SeaAlertControllerStyleActionSheet cancelButtonTitle:@"取消" otherButtonActions:actions];
             
             __weak SeaAlertController *weakAlert = alert;
             WeakSelf(self);
@@ -218,8 +231,13 @@
             break;
         case 13 : {
             
+            SeaAlertStyle *style = [SeaAlertStyle alertInstance];
+            style.destructiveButtonTextColor = [UIColor whiteColor];
+            style.destructiveButtonBackgroundColor = [UIColor redColor];
+            
             SeaAlertController *alert = [[SeaAlertController alloc] initWithTitle:@"Alert标题" message:@"Alert信息" icon:[UIImage imageNamed:@"icon"] style:SeaAlertControllerStyleAlert cancelButtonTitle:nil otherButtonTitles:@[@"相册", @"拍照"]];
             
+            alert.destructiveButtonIndex = 1;
             __weak SeaAlertController *weakAlert = alert;
             WeakSelf(self);
             alert.selectionHandler = ^(NSUInteger index){
