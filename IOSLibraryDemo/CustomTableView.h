@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomTableView : UITableView
+@interface CustomTableView : UITableView<UIGestureRecognizerDelegate>
+
+@property(nonatomic, copy) UIView* (^hitTestHandler)(UIView *superHandlerView);
 
 @end

@@ -42,13 +42,6 @@
     return view;
 }
 
-- (UIResponder*)nextResponder
-{
-    UIResponder *responder = [self nextResponder];
-    
-    return responder;
-}
-
 @end
 
 @interface HitTestViewController ()

@@ -10,22 +10,20 @@
 
 @implementation CustomTableView
 
-- (void)layoutSubviews
+///允许手势冲突
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
-    [super layoutSubviews];
-//    NSLog(@"table %@", self);
+    return YES;
 }
 
-//- (BOOL)touchesShouldBegin:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event inContentView:(UIView *)view
-//{
-//    return NO;
-//    return [super touchesShouldBegin:touches withEvent:event inContentView:view];
-//}
-//
-//- (BOOL)touchesShouldCancelInContentView:(UIView *)view
-//{
-//    return NO;
-//    return [super touchesShouldCancelInContentView:view];
-//}
+- (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    UIView *view = [super hitTest:point withEvent:event];
+    if(self.hitTestHandler){
+        return self.hitTestHandler(view);
+    }
+    
+    return view;
+}
 
 @end

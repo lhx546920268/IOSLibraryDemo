@@ -7,6 +7,7 @@
 //
 
 #import "SubPageViewController.h"
+#import "CustomTableView.h"
 
 @interface SubPageViewController ()
 
@@ -28,6 +29,16 @@
     [self registerClass:[UITableViewCell class]];
     
     [super initialization];
+}
+
+- (Class)tableViewClass
+{
+    return [CustomTableView class];
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.pageViewController.nestedTableViewController scrollViewWillBeginDragging:scrollView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -61,7 +72,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+    return 130;
 }
 
 

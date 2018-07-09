@@ -28,12 +28,16 @@
 #import "CustomTableView.h"
 #import "HitTestViewController.h"
 #import <SeaToast.h>
+#import <malloc/malloc.h>
+#import <objc/runtime.h>
 
 @interface RootViewController ()<UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>
 
 @property(nonatomic, strong) NSArray<NSString*> *titles;
 
 @property(nonatomic, strong) SeaPopoverMenu *popoverMenu;
+
+@property(nonatomic, strong) NSMutableArray *images;
 
 @end
 
@@ -44,6 +48,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"首页";
+    self.images = [NSMutableArray array];
     
     self.titles = @[@"SeaMenuBar",
                     @"SeaPageViewController",
@@ -191,8 +196,26 @@
         case 10 : {
 //            [self sea_alertMsg:@"这是一个小提示框"];
 //            [self sea_alertMsg:nil icon:[UIImage imageNamed:@"icon"]];
-            [SeaToastStyle sharedInstance].offset = 30;
-            [self sea_alertMsg:@"这是一个小提示框" icon:[UIImage imageNamed:@"icon"]];
+//            [SeaToastStyle sharedInstance].offset = 30;
+//            UIImage *image = [UIImage imageNamed:@"icon"];
+            UIImage *image12x = [UIImage sea_bundleImageWithName:@"1@2x"];
+            [self.images addObject:image12x];
+            UIImage *image1 = [UIImage sea_bundleImageWithName:@"xx"];
+            [self.images addObject:image1];
+            NSLog(@"size = %zd", malloc_size((__bridge const void *)image1));
+            NSLog(@"size = %zd", malloc_good_size(class_getInstanceSize([image1 class])));
+            UIImage *image2 = [UIImage sea_bundleImageWithName:@"2@2x"];
+            [self.images addObject:image2];
+//            UIImage *image3 = [UIImage sea_bundleImageWithName:@"3"];
+            UIImage *image4 = [UIImage sea_bundleImageWithName:@"4"];
+            [self.images addObject:image4];
+            UIImage *image5 = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"5" ofType:@"jpg"]];
+            
+            NSLog(@"size = %zd", malloc_size((__bridge const void *)image5));
+            NSLog(@"size = %zd", malloc_good_size(class_getInstanceSize([image5 class])));
+            [self.images addObject:image5];
+//            NSString *str = @"这是一个小提示框";
+//            [self sea_alertMsg:str icon:image];
         }
             break;
         case 11 : {

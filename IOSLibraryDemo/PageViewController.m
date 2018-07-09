@@ -48,4 +48,16 @@
     return self.subPage;
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    self.nestedTableViewController.tableView.scrollEnabled = NO;
+    self.currentScrollView.scrollEnabled = NO;
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+{
+    self.nestedTableViewController.tableView.scrollEnabled = YES;
+    self.currentScrollView.scrollEnabled = YES;
+}
+
 @end

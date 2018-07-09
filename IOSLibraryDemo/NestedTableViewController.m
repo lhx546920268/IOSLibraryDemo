@@ -8,7 +8,7 @@
 
 #import "NestedTableViewController.h"
 #import "PageViewController.h"
-
+#import "CustomTableView.h"
 
 @interface SubPageCell : UITableViewCell
 
@@ -18,6 +18,8 @@
 ///父
 @property(nonatomic, weak) UIViewController *parentViewController;
 
+
+
 @end
 
 @interface NestedTableViewController ()
@@ -25,6 +27,15 @@
 @property(nonatomic, strong) PageViewController *page;
 
 @property(nonatomic, assign) CGFloat offset;
+
+///父scrollView 是否可以滑动
+@property(nonatomic,assign) BOOL parentScrollEnable;
+
+///子scrollView 是否可以滑动
+@property(nonatomic,assign) BOOL childScrollEnable;
+
+///
+@property(nonatomic,assign) CGFloat targetY;
 
 @end
 
@@ -34,6 +45,8 @@
     [super viewDidLoad];
     self.page = [PageViewController new];
     self.page.nestedTableViewController = self;
+    self.parentScrollEnable = YES;
+    self.childScrollEnable = NO;
    
     [self initialization];
 }
@@ -45,6 +58,18 @@
     [self registerClass:[SubPageCell class]];
 
     [super initialization];
+    
+    CustomTableView *tableView = (CustomTableView*)self.tableView;
+    
+    WeakSelf(self);
+    tableView.hitTestHandler = ^(UIView *view){
+        return weakSelf.page.currentScrollView;
+    };
+}
+
+- (Class)tableViewClass
+{
+    return [CustomTableView class];
 }
 
 - (void)emptyViewWillAppear:(SeaEmptyView *)view
@@ -56,57 +81,88 @@
     }
 }
 
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    self.page.scrollView.scrollEnabled = NO;
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     BOOL isParent = scrollView == self.tableView;
-    CGPoint contentOffset = self.tableView.contentOffset;
-    CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
-    CGFloat offset = contentOffset.y - maxOffsetY;
+    CGPoint contentOffset = scrollView.contentOffset;
+    
     if(isParent){
+        CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
+        CGFloat offset = contentOffset.y - maxOffsetY;
         if(offset > 0){
-            self.page.currentScrollView.contentOffset = CGPointMake(0, offset);
-            self.tableView.contentOffset = CGPointMake(0, maxOffsetY);
+            scrollView.contentOffset = CGPointMake(0, maxOffsetY);
+            if(self.parentScrollEnable){
+                self.parentScrollEnable = NO;
+                self.childScrollEnable = YES;
+            }
+        }else{
+            if(!self.parentScrollEnable){
+                scrollView.contentOffset = CGPointMake(0, maxOffsetY);
+            }
         }
+//        if(offset > 0){
+//            self.page.currentScrollView.contentOffset = CGPointMake(0, offset);
+//            self.tableView.contentOffset = CGPointMake(0, maxOffsetY);
+//        }
     }else{
-        if(offset < 0){
-            self.tableView.contentOffset = CGPointMake(0, contentOffset.y + scrollView.contentOffset.y);
+        if(!self.childScrollEnable){
             scrollView.contentOffset = CGPointZero;
-        }else if(scrollView.contentOffset.y <= 0){
-            self.tableView.contentOffset = CGPointMake(0, contentOffset.y + scrollView.contentOffset.y);
-            scrollView.contentOffset = CGPointZero;
+            return;
         }
-        
+        if(contentOffset.y <= 0){
+            scrollView.contentOffset = CGPointZero;
+            self.childScrollEnable = NO;
+            self.parentScrollEnable = YES;
+        }
+//        if(offset < 0){
+//            self.tableView.contentOffset = CGPointMake(0, contentOffset.y + scrollView.contentOffset.y);
+//            scrollView.contentOffset = CGPointZero;
+//        }else if(scrollView.contentOffset.y <= 0){
+//            self.tableView.contentOffset = CGPointMake(0, contentOffset.y + scrollView.contentOffset.y);
+//            scrollView.contentOffset = CGPointZero;
+//        }
     }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
+    self.page.scrollView.scrollEnabled = YES;
     BOOL isParent = scrollView == self.tableView;
-    CGPoint contentOffset = self.tableView.contentOffset;
-    CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
-    CGFloat offset = contentOffset.y - maxOffsetY;
-//    NSLog(@"%f", maxOffsetY);
-
-    //将要偏移的距离
-    CGFloat duration = 0.3;
-    CGFloat offsetY = velocity.y * duration * 1000;
-
+//    CGPoint contentOffset = self.tableView.contentOffset;
+//    CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
+//    CGFloat offset = contentOffset.y - maxOffsetY;
+////    NSLog(@"%f", maxOffsetY);
+//
+//    //将要偏移的距离
+//    CGFloat duration = 0.3;
+//    CGFloat offsetY = velocity.y * duration * 1000;
+//
     if(isParent){
-//        offset += offsetY;
-//        NSLog(@"%f", offsetY);
-//        NSLog(@"%f", offset);
-//        if(offset > 0){
-//            self.offset = offset;
-//            [self.tableView setContentOffset:CGPointMake(0, maxOffsetY) animated:YES];
-//        }
-    }else{
-        if(scrollView.contentOffset.y <= 0 && velocity.y < 0){
-            NSLog(@"%f", contentOffset.y);
-            NSLog(@"%f", offsetY);
-            [self.tableView setContentOffset:CGPointMake(0, MAX(contentOffset.y + offsetY, -50)) animated:YES];
-            scrollView.contentOffset = CGPointZero;
+        
+        CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
+        if(targetContentOffset->y >= maxOffsetY){
+            self.targetY = velocity.y * 500 - maxOffsetY;
+        }else{
+            self.targetY = 0;
         }
+    }
+    else{
+        
+//        NSLog(@"%f", scrollView.contentOffset.y);
+//        NSLog(@"%f", targetContentOffset->y);
+//        NSLog(@"%@", NSStringFromCGPoint(velocity));
+//        NSLog(@"%f", velocity.y * 1000);
+//        if(scrollView.contentOffset.y <= 0 && velocity.y < 0){
+//            NSLog(@"%f", contentOffset.y);
+//            NSLog(@"%f", offsetY);
+//            [self.tableView setContentOffset:CGPointMake(0, MAX(contentOffset.y + offsetY, -50)) animated:YES];
+//            scrollView.contentOffset = CGPointZero;
+//        }
     }
 }
 
@@ -114,32 +170,38 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
-    BOOL isParent = scrollView == self.tableView;
-    if(isParent && !decelerate){
-        if(scrollView.contentOffset.y < 0){
-            [scrollView setContentOffset:CGPointZero animated:YES];
-        }
-    }
+//    BOOL isParent = scrollView == self.tableView;
+//    if(isParent && !decelerate){
+//        if(scrollView.contentOffset.y < 0){
+//            [scrollView setContentOffset:CGPointZero animated:YES];
+//        }
+//    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+//    NSLog(@"%f", [[NSDate date] timeIntervalSinceReferenceDate]);
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    BOOL isParent = scrollView == self.tableView;
-    if(isParent){
-        if(scrollView.contentOffset.y < 0){
-            [scrollView setContentOffset:CGPointZero animated:YES];
-        }
-    }
+//    NSLog(@"%f", [[NSDate date] timeIntervalSinceReferenceDate]);
+//    BOOL isParent = scrollView == self.tableView;
+//    if(isParent){
+//        if(scrollView.contentOffset.y < 0){
+//            [scrollView setContentOffset:CGPointZero animated:YES];
+//        }
+//    }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    BOOL isParent = scrollView == self.tableView;
-    if(isParent){
-        if(scrollView.contentOffset.y < 0){
-            [scrollView setContentOffset:CGPointZero animated:YES];
-        }
-    }
+//    BOOL isParent = scrollView == self.tableView;
+//    if(isParent){
+//        if(scrollView.contentOffset.y < 0){
+//            [scrollView setContentOffset:CGPointZero animated:YES];
+//        }
+//    }
 }
 
 
