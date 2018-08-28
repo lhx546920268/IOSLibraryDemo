@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1003F5F62044FD4C0097325F /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003F5F42044FD4C0097325F /* BannerViewController.m */; };
 		1003F5F72044FD4C0097325F /* BannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1003F5F52044FD4C0097325F /* BannerViewController.xib */; };
+		100613F5213525CC00F984BA /* PolygonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100613F4213525CC00F984BA /* PolygonViewController.m */; };
 		103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */; };
 		1044A78A202163FD00679F9B /* FillLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1044A789202163FD00679F9B /* FillLayoutViewController.m */; };
 		104665FF20070B98006E7736 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104665FE20070B98006E7736 /* PageViewController.m */; };
@@ -45,6 +46,7 @@
 		10CB0A9E2005C5D00067ADDB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CB0A9D2005C5D00067ADDB /* RootViewController.m */; };
 		10D6FABE204E6DAF008B201D /* WebViewJSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D6FABD204E6DAF008B201D /* WebViewJSViewController.m */; };
 		10D6FAC0204E6E60008B201D /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 10D6FABF204E6E60008B201D /* test.html */; };
+		10DD3B2E2101766D00B12E13 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DD3B2D2101766D00B12E13 /* RefreshViewController.m */; };
 		10E3A51A20060BEF0062A23D /* MenuBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E3A51920060BEF0062A23D /* MenuBarViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		1003F5F32044FD4C0097325F /* BannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
 		1003F5F42044FD4C0097325F /* BannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
 		1003F5F52044FD4C0097325F /* BannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerViewController.xib; sourceTree = "<group>"; };
+		100613F3213525CC00F984BA /* PolygonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolygonViewController.h; sourceTree = "<group>"; };
+		100613F4213525CC00F984BA /* PolygonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonViewController.m; sourceTree = "<group>"; };
 		103B00DB208F2E5D00DE97C9 /* HitTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitTestViewController.h; sourceTree = "<group>"; };
 		103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitTestViewController.m; sourceTree = "<group>"; };
 		1044A788202163FD00679F9B /* FillLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FillLayoutViewController.h; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 		10D6FABC204E6DAF008B201D /* WebViewJSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewJSViewController.h; sourceTree = "<group>"; };
 		10D6FABD204E6DAF008B201D /* WebViewJSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewJSViewController.m; sourceTree = "<group>"; };
 		10D6FABF204E6E60008B201D /* test.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		10DD3B2C2101766D00B12E13 /* RefreshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
+		10DD3B2D2101766D00B12E13 /* RefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		10E3A51820060BEF0062A23D /* MenuBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuBarViewController.h; sourceTree = "<group>"; };
 		10E3A51920060BEF0062A23D /* MenuBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuBarViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +217,10 @@
 				10B03BB1207F64B0001856D5 /* CustomTableView.m */,
 				103B00DB208F2E5D00DE97C9 /* HitTestViewController.h */,
 				103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */,
+				10DD3B2C2101766D00B12E13 /* RefreshViewController.h */,
+				10DD3B2D2101766D00B12E13 /* RefreshViewController.m */,
+				100613F3213525CC00F984BA /* PolygonViewController.h */,
+				100613F4213525CC00F984BA /* PolygonViewController.m */,
 			);
 			path = IOSLibraryDemo;
 			sourceTree = "<group>";
@@ -316,6 +326,7 @@
 				104FD6142016E64900568B82 /* TransitionViewController.m in Sources */,
 				1068E33820088DFE00707D11 /* DropDownMenuViewController.m in Sources */,
 				10C27442207B005900BC13EF /* EmptyViewController.m in Sources */,
+				10DD3B2E2101766D00B12E13 /* RefreshViewController.m in Sources */,
 				103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */,
 				109D7F2A20492D000050D1F7 /* LargeImageViewController.m in Sources */,
 				10772EEA2011BFD700CD47BE /* TabBar2ViewController.m in Sources */,
@@ -330,6 +341,7 @@
 				10772EF62011D76A00CD47BE /* Dialog.m in Sources */,
 				10A277B1202809E70002692E /* CollectionReusableView.m in Sources */,
 				104665FF20070B98006E7736 /* PageViewController.m in Sources */,
+				100613F5213525CC00F984BA /* PolygonViewController.m in Sources */,
 				1003F5F62044FD4C0097325F /* BannerViewController.m in Sources */,
 				104D198920156F8700BAB3EF /* SearchDisplayViewController.m in Sources */,
 				104FD6182016E69600568B82 /* TableViewController.m in Sources */,

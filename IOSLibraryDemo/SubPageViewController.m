@@ -46,19 +46,9 @@
     [self.pageViewController.nestedTableViewController scrollViewDidScroll:scrollView];
 }
 
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    [self.pageViewController.nestedTableViewController scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
-}
-
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     [self.pageViewController.nestedTableViewController scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    [self.pageViewController.nestedTableViewController scrollViewDidEndDecelerating:scrollView];
 }
 
 - (void)emptyViewWillAppear:(SeaEmptyView *)view

@@ -18,7 +18,24 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMv-GW-Am8">
+                    <rect key="frame" x="165.5" y="325.5" width="44" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="3"/>
+                    <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
+                    <state key="normal" title="取使用32" backgroundImage="coupones_btn_bg">
+                        <color key="titleColor" red="0.99961632489999996" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.19081506679261248" green="0.72560546874999998" blue="0.59785302995432421" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nMv-GW-Am8" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Nf1-YQ-pZF"/>
+                <constraint firstItem="nMv-GW-Am8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gdU-87-yqZ"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="coupones_btn_bg" width="44" height="16"/>
+    </resources>
 </document>

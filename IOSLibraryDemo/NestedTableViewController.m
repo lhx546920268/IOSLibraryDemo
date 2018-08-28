@@ -26,16 +26,11 @@
 
 @property(nonatomic, strong) PageViewController *page;
 
-@property(nonatomic, assign) CGFloat offset;
-
 ///父scrollView 是否可以滑动
 @property(nonatomic,assign) BOOL parentScrollEnable;
 
 ///子scrollView 是否可以滑动
 @property(nonatomic,assign) BOOL childScrollEnable;
-
-///
-@property(nonatomic,assign) CGFloat targetY;
 
 @end
 
@@ -56,7 +51,7 @@
     [self registerClass:[UITableViewCell class]];
     [self registerClassForHeaderFooterView:[UITableViewHeaderFooterView class]];
     [self registerClass:[SubPageCell class]];
-
+    
     [super initialization];
     
     CustomTableView *tableView = (CustomTableView*)self.tableView;
@@ -105,10 +100,6 @@
                 scrollView.contentOffset = CGPointMake(0, maxOffsetY);
             }
         }
-//        if(offset > 0){
-//            self.page.currentScrollView.contentOffset = CGPointMake(0, offset);
-//            self.tableView.contentOffset = CGPointMake(0, maxOffsetY);
-//        }
     }else{
         if(!self.childScrollEnable){
             scrollView.contentOffset = CGPointZero;
@@ -119,89 +110,12 @@
             self.childScrollEnable = NO;
             self.parentScrollEnable = YES;
         }
-//        if(offset < 0){
-//            self.tableView.contentOffset = CGPointMake(0, contentOffset.y + scrollView.contentOffset.y);
-//            scrollView.contentOffset = CGPointZero;
-//        }else if(scrollView.contentOffset.y <= 0){
-//            self.tableView.contentOffset = CGPointMake(0, contentOffset.y + scrollView.contentOffset.y);
-//            scrollView.contentOffset = CGPointZero;
-//        }
     }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     self.page.scrollView.scrollEnabled = YES;
-    BOOL isParent = scrollView == self.tableView;
-//    CGPoint contentOffset = self.tableView.contentOffset;
-//    CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
-//    CGFloat offset = contentOffset.y - maxOffsetY;
-////    NSLog(@"%f", maxOffsetY);
-//
-//    //将要偏移的距离
-//    CGFloat duration = 0.3;
-//    CGFloat offsetY = velocity.y * duration * 1000;
-//
-    if(isParent){
-        
-        CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
-        if(targetContentOffset->y >= maxOffsetY){
-            self.targetY = velocity.y * 500 - maxOffsetY;
-        }else{
-            self.targetY = 0;
-        }
-    }
-    else{
-        
-//        NSLog(@"%f", scrollView.contentOffset.y);
-//        NSLog(@"%f", targetContentOffset->y);
-//        NSLog(@"%@", NSStringFromCGPoint(velocity));
-//        NSLog(@"%f", velocity.y * 1000);
-//        if(scrollView.contentOffset.y <= 0 && velocity.y < 0){
-//            NSLog(@"%f", contentOffset.y);
-//            NSLog(@"%f", offsetY);
-//            [self.tableView setContentOffset:CGPointMake(0, MAX(contentOffset.y + offsetY, -50)) animated:YES];
-//            scrollView.contentOffset = CGPointZero;
-//        }
-    }
-}
-
-
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-//    BOOL isParent = scrollView == self.tableView;
-//    if(isParent && !decelerate){
-//        if(scrollView.contentOffset.y < 0){
-//            [scrollView setContentOffset:CGPointZero animated:YES];
-//        }
-//    }
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-{
-//    NSLog(@"%f", [[NSDate date] timeIntervalSinceReferenceDate]);
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-//    NSLog(@"%f", [[NSDate date] timeIntervalSinceReferenceDate]);
-//    BOOL isParent = scrollView == self.tableView;
-//    if(isParent){
-//        if(scrollView.contentOffset.y < 0){
-//            [scrollView setContentOffset:CGPointZero animated:YES];
-//        }
-//    }
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-//    BOOL isParent = scrollView == self.tableView;
-//    if(isParent){
-//        if(scrollView.contentOffset.y < 0){
-//            [scrollView setContentOffset:CGPointZero animated:YES];
-//        }
-//    }
 }
 
 

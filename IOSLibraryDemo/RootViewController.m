@@ -30,6 +30,8 @@
 #import <SeaToast.h>
 #import <malloc/malloc.h>
 #import <objc/runtime.h>
+#import "RefreshViewController.h"
+#import "PolygonViewController.h"
 
 @interface RootViewController ()<UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -68,7 +70,9 @@
                     @"大图，长图",
                     @"空视图",
                     @"嵌套scrollView",
-                    @"hit test 测试"];
+                    @"hit test 测试",
+                    @"刷新",
+                    @"多边形"];
     
     [self registerClass:[UITableViewCell class]];
     [self initialization];
@@ -87,6 +91,7 @@
         SeaPopoverMenu *menu = [SeaPopoverMenu new];
         menu.rowHeight = 45;
         menu.iconTitleInterval = 10;
+        menu.arrowSize = CGSizeMake(15, 10);
         menu.menuItemInfos = @[
                                [SeaPopoverMenuItemInfo infoWithTitle:@"我的朋友" icon:[UIImage imageNamed:@"icon"]],
                                [SeaPopoverMenuItemInfo infoWithTitle:@"首页" icon:[UIImage imageNamed:@"icon"]],
@@ -301,6 +306,13 @@
             [self sea_pushViewControllerUseTransitionDelegate:[HitTestViewController new]];
         }
             break;
+        case 19 : {
+            [self sea_pushViewControllerUseTransitionDelegate:[RefreshViewController new]];
+        }
+            break;
+        case 20 : {
+            [self sea_pushViewControllerUseTransitionDelegate:[PolygonViewController new]];
+        }
         default:
             break;
     }
