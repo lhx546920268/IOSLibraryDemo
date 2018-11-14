@@ -9,6 +9,7 @@
 #import "NestedTableViewController.h"
 #import "PageViewController.h"
 #import "CustomTableView.h"
+#import "NestedTableViewCell.h"
 
 @interface SubPageCell : UITableViewCell
 
@@ -40,15 +41,17 @@
     [super viewDidLoad];
     self.page = [PageViewController new];
     self.page.nestedTableViewController = self;
+    
     self.parentScrollEnable = YES;
-    self.childScrollEnable = NO;
+    self.childScrollEnable = YES;
+    self.tableView.bounces = NO;
    
     [self initialization];
 }
 
 - (void)initialization
 {
-    [self registerClass:[UITableViewCell class]];
+    [self registerNib:[NestedTableViewCell class]];
     [self registerClassForHeaderFooterView:[UITableViewHeaderFooterView class]];
     [self registerClass:[SubPageCell class]];
     
@@ -79,6 +82,8 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     self.page.scrollView.scrollEnabled = NO;
+    CustomTableView *tableView = (CustomTableView*)self.tableView;
+    tableView.scrollView = self.page.scrollView;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -87,25 +92,45 @@
     CGPoint contentOffset = scrollView.contentOffset;
     
     if(isParent){
+        
+        //下拉刷新中
+        if(self.page.currentScrollView.contentOffset.y < 0){
+            scrollView.contentOffset = CGPointZero;
+            return;
+        }
+        
         CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
         CGFloat offset = contentOffset.y - maxOffsetY;
-        if(offset > 0){
+        
+        //已经滑出顶部范围了，让子容器滑动
+        if(offset >= 0){
             scrollView.contentOffset = CGPointMake(0, maxOffsetY);
             if(self.parentScrollEnable){
                 self.parentScrollEnable = NO;
                 self.childScrollEnable = YES;
             }
         }else{
+            //不能让父容器继续滑动了
             if(!self.parentScrollEnable){
                 scrollView.contentOffset = CGPointMake(0, maxOffsetY);
             }
         }
+        
+        //到顶部了，应该要下拉刷新了
+        if(scrollView.contentOffset.y == 0){
+            self.childScrollEnable = YES;
+        }
     }else{
-        if(!self.childScrollEnable){
+        
+        //滚动容器还在滑动中
+        CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
+        if(!self.childScrollEnable || (self.tableView.contentOffset.y > 0 && self.tableView.contentOffset.y < maxOffsetY)){
             scrollView.contentOffset = CGPointZero;
             return;
         }
-        if(contentOffset.y <= 0){
+        
+        //滑到滚动容器了滚动容器
+        if(contentOffset.y <= 0 && self.tableView.contentOffset.y > 0){
             scrollView.contentOffset = CGPointZero;
             self.childScrollEnable = NO;
             self.parentScrollEnable = YES;
@@ -126,7 +151,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return section == 0 ? 10 : 1;
+    return section == 0 ? 3 : 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,8 +179,10 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[UITableViewCell sea_nameOfClass] forIndexPath:indexPath];
-        cell.textLabel.text = [NSString stringWithFormat:@"第%ld个", indexPath.row];
+        NestedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[NestedTableViewCell sea_nameOfClass] forIndexPath:indexPath];
+        
+        [cell.btn setTitle:[NSString stringWithFormat:@"第%ld个按钮", indexPath.row] forState:UIControlStateNormal];
+        cell.contentView.tag = indexPath.row + 1;
         
         return cell;
     }else{
@@ -165,6 +192,11 @@
         
         return cell;
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 

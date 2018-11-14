@@ -29,25 +29,41 @@
     [self registerClass:[UITableViewCell class]];
     
     [super initialization];
+    self.refreshEnable = YES;
+    self.loadMoreEnable = YES;
+    [self stopLoadMoreWithMore:YES];
 }
 
-- (Class)tableViewClass
+- (void)onRefesh
 {
-    return [CustomTableView class];
+    [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:2.0];
 }
+
+- (void)onLoadMore
+{
+    [self performSelector:@selector(stopLoadMoreWithMore:) withObject:@(NO) afterDelay:2.0];
+}
+
+//- (Class)tableViewClass
+//{
+//    return [CustomTableView class];
+//}
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    [super scrollViewWillBeginDragging:scrollView];
     [self.pageViewController.nestedTableViewController scrollViewWillBeginDragging:scrollView];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    [super scrollViewDidScroll:scrollView];
     [self.pageViewController.nestedTableViewController scrollViewDidScroll:scrollView];
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
+    [super scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
     [self.pageViewController.nestedTableViewController scrollViewWillEndDragging:scrollView withVelocity:velocity targetContentOffset:targetContentOffset];
 }
 
@@ -72,6 +88,11 @@
     cell.textLabel.text = [NSString stringWithFormat:@"第%ld个", indexPath.row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

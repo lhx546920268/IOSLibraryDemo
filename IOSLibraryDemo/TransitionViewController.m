@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"Transition";
     
+    
     [self.horizontalBtn addTarget:self action:@selector(touchDown) forControlEvents:UIControlEventTouchDown];
     [self.horizontalBtn addTarget:self action:@selector(touchCancel) forControlEvents:UIControlEventTouchCancel];
     [self.horizontalBtn addTarget:self action:@selector(touchUpInside) forControlEvents:UIControlEventTouchUpInside];

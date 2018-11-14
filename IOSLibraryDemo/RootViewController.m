@@ -33,6 +33,45 @@
 #import "RefreshViewController.h"
 #import "PolygonViewController.h"
 
+@interface Test1 : NSObject
+
++ (void)test;
+
+@end
+
+@implementation Test1
+
++ (void)test
+{
+    NSLog(@"Test1");
+}
+
+@end
+
+@interface Test2 : Test1
+
++ (void)test;
+
+@end
+
+@implementation Test2
+
++ (void)test
+{
+    NSLog(@"Test2");
+}
+
+@end
+
+@interface Test3 : Test1
+
+
+@end
+
+@implementation Test3
+
+@end
+
 @interface RootViewController ()<UIDocumentPickerDelegate, UIDocumentInteractionControllerDelegate>
 
 @property(nonatomic, strong) NSArray<NSString*> *titles;
@@ -48,6 +87,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [Test1 test];
+    [Test2 test];
+    [Test3 test];
     
     self.title = @"首页";
     self.images = [NSMutableArray array];
@@ -204,6 +247,14 @@
 //            [SeaToastStyle sharedInstance].offset = 30;
 //            UIImage *image = [UIImage imageNamed:@"icon"];
             UIImage *image12x = [UIImage sea_bundleImageWithName:@"1@2x"];
+            
+            CFDataRef data = CGDataProviderCopyData(CGImageGetDataProvider(image12x.CGImage));
+            NSUInteger length = CFDataGetLength(data);
+            CFRelease(data);
+            
+            CGImageGetBitsPerPixel(image12x.CGImage);
+            CGImageGetBitsPerComponent(image12x.CGImage);
+            
             [self.images addObject:image12x];
             UIImage *image1 = [UIImage sea_bundleImageWithName:@"xx"];
             [self.images addObject:image1];

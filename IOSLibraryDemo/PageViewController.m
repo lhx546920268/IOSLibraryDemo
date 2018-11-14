@@ -44,8 +44,12 @@
 
 - (UIViewController*)viewControllerForIndex:(NSUInteger)index
 {
-    self.subPage = self.subPages[index];
-    return self.subPage;
+    return self.subPages[index];
+}
+
+- (void)onScrollTopPage:(NSInteger)page
+{
+    self.subPage = self.subPages[page];
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

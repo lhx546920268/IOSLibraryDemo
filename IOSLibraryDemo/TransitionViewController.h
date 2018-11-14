@@ -10,5 +10,6 @@
 
 @interface TransitionViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *horizontalBtn;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
 
 @end

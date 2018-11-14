@@ -53,6 +53,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
     
     cell.textLabel.text = [NSString stringWithFormat:@"%d", (int)indexPath.row];
+    cell.contentView.tag = indexPath.row + 1;
     
     return cell;
 }
@@ -65,6 +66,7 @@
     nav.view.height = 300;
     [SeaPartialPresentTransitionDelegate presentViewController:nav inViewController:self];
 //    [self.navigationController pushViewController:[TableViewController new] animated:YES];
+    
 }
 
 @end

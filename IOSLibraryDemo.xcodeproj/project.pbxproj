@@ -10,6 +10,8 @@
 		1003F5F62044FD4C0097325F /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1003F5F42044FD4C0097325F /* BannerViewController.m */; };
 		1003F5F72044FD4C0097325F /* BannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1003F5F52044FD4C0097325F /* BannerViewController.xib */; };
 		100613F5213525CC00F984BA /* PolygonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 100613F4213525CC00F984BA /* PolygonViewController.m */; };
+		10111B3D219C1D55007924F1 /* NestedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 10111B3B219C1D55007924F1 /* NestedTableViewCell.m */; };
+		10111B3E219C1D55007924F1 /* NestedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10111B3C219C1D55007924F1 /* NestedTableViewCell.xib */; };
 		103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */; };
 		1044A78A202163FD00679F9B /* FillLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1044A789202163FD00679F9B /* FillLayoutViewController.m */; };
 		104665FF20070B98006E7736 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 104665FE20070B98006E7736 /* PageViewController.m */; };
@@ -56,6 +58,9 @@
 		1003F5F52044FD4C0097325F /* BannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerViewController.xib; sourceTree = "<group>"; };
 		100613F3213525CC00F984BA /* PolygonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolygonViewController.h; sourceTree = "<group>"; };
 		100613F4213525CC00F984BA /* PolygonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolygonViewController.m; sourceTree = "<group>"; };
+		10111B3A219C1D55007924F1 /* NestedTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NestedTableViewCell.h; sourceTree = "<group>"; };
+		10111B3B219C1D55007924F1 /* NestedTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NestedTableViewCell.m; sourceTree = "<group>"; };
+		10111B3C219C1D55007924F1 /* NestedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NestedTableViewCell.xib; sourceTree = "<group>"; };
 		103B00DB208F2E5D00DE97C9 /* HitTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HitTestViewController.h; sourceTree = "<group>"; };
 		103B00DC208F2E5D00DE97C9 /* HitTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HitTestViewController.m; sourceTree = "<group>"; };
 		1044A788202163FD00679F9B /* FillLayoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FillLayoutViewController.h; sourceTree = "<group>"; };
@@ -221,6 +226,9 @@
 				10DD3B2D2101766D00B12E13 /* RefreshViewController.m */,
 				100613F3213525CC00F984BA /* PolygonViewController.h */,
 				100613F4213525CC00F984BA /* PolygonViewController.m */,
+				10111B3A219C1D55007924F1 /* NestedTableViewCell.h */,
+				10111B3B219C1D55007924F1 /* NestedTableViewCell.m */,
+				10111B3C219C1D55007924F1 /* NestedTableViewCell.xib */,
 			);
 			path = IOSLibraryDemo;
 			sourceTree = "<group>";
@@ -296,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10111B3E219C1D55007924F1 /* NestedTableViewCell.xib in Resources */,
 				10AB90C520C53C8100185FD8 /* 2@2x.png in Resources */,
 				10AB90C320C53C8100185FD8 /* 4.png in Resources */,
 				109D7F2E20493BBA0050D1F7 /* xx.png in Resources */,
@@ -326,6 +335,7 @@
 				104FD6142016E64900568B82 /* TransitionViewController.m in Sources */,
 				1068E33820088DFE00707D11 /* DropDownMenuViewController.m in Sources */,
 				10C27442207B005900BC13EF /* EmptyViewController.m in Sources */,
+				10111B3D219C1D55007924F1 /* NestedTableViewCell.m in Sources */,
 				10DD3B2E2101766D00B12E13 /* RefreshViewController.m in Sources */,
 				103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */,
 				109D7F2A20492D000050D1F7 /* LargeImageViewController.m in Sources */,

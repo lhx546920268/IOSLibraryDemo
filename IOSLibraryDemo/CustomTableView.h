@@ -12,4 +12,6 @@
 
 @property(nonatomic, copy) UIView* (^hitTestHandler)(UIView *superHandlerView);
 
+@property(nonatomic, weak) UIScrollView *scrollView;
+
 @end
