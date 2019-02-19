@@ -50,8 +50,6 @@
 
 @interface Test2 : Test1
 
-+ (void)test;
-
 @end
 
 @implementation Test2

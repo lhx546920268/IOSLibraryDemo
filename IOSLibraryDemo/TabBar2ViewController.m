@@ -47,24 +47,6 @@
 
 @end
 
-@interface TabBar2ViewControllerSub : TabBar2ViewController
-
-@end
-
-@implementation TabBar2ViewControllerSub
-
-+ (void)initialize
-{
-    NSLog(@"TabBar2ViewControllerSub init");
-}
-
-+ (void)load
-{
-    NSLog(@"TabBar2ViewControllerSub cate1 load");
-}
-
-@end
-
 @interface TabBar2ViewController(Cate1)
 
 @end
@@ -82,3 +64,23 @@
 }
 
 @end
+
+@interface TabBar2ViewControllerSub : TabBar2ViewController
+
+@end
+
+@implementation TabBar2ViewControllerSub
+
++ (void)initialize
+{
+    NSLog(@"TabBar2ViewControllerSub init");
+}
+
++ (void)load
+{
+    NSLog(@"TabBar2ViewControllerSub load");
+}
+
+@end
+
+
