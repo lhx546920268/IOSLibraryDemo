@@ -207,7 +207,7 @@
             SeaAlbumAssetsViewController *album = [SeaAlbumAssetsViewController new];
             
             SeaImageCropSettings *settings = [SeaImageCropSettings new];
-            settings.cropSize = CGSizeMake(SeaScreenWidth, SeaScreenWidth);
+            settings.cropSize = CGSizeMake(UIScreen.screenWidth, UIScreen.screenWidth);
             album.settings = settings;
             
             [self presentViewController:[album sea_createWithNavigationController] animated:YES completion:nil];

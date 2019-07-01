@@ -27,13 +27,20 @@
     
     self.verticalBannerView = [[SeaBannerView alloc] initWithScrollDirection:UICollectionViewScrollDirectionVertical];
     self.verticalBannerView.delegate = self;
+  //  self.verticalBannerView.enableAutoScroll = NO;
     [self.verticalBannerView registerClass:[UICollectionViewCell class]];
     
     [self.view addSubview:self.verticalBannerView];
     
     self.horizonalBannerView = [[SeaBannerView alloc] initWithScrollDirection:UICollectionViewScrollDirectionHorizontal];
     self.horizonalBannerView.delegate = self;
+    self.horizonalBannerView.bothAlpha = 0.8;
+    self.horizonalBannerView.widthRatio = 0.8;
+    self.horizonalBannerView.bothScale = 0.5;
+    self.horizonalBannerView.bothSpacing = 10;
     self.horizonalBannerView.showPageControl = YES;
+    self.horizonalBannerView.pageControl.pageIndicatorTintColor = UIColor.grayColor;
+    self.horizonalBannerView.enableAutoScroll = NO;
     [self.horizonalBannerView registerClass:[UICollectionViewCell class]];
     [self.view addSubview:self.horizonalBannerView];
     

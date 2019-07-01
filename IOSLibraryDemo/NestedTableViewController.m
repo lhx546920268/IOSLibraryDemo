@@ -44,7 +44,7 @@
     
     self.parentScrollEnable = YES;
     self.childScrollEnable = YES;
-    self.tableView.bounces = NO;
+//    self.tableView.bounces = NO;
    
     [self initialization];
 }
@@ -59,15 +59,22 @@
     
     CustomTableView *tableView = (CustomTableView*)self.tableView;
     
+    
     WeakSelf(self);
     tableView.hitTestHandler = ^(UIView *view){
-        return weakSelf.page.currentScrollView;
+        UIView *scrollView = weakSelf.page.currentScrollView;
+        if(![view isDescendantOfView:scrollView]){
+            return view;
+        }else{
+            
+            return scrollView;
+        }
     };
 }
 
 - (Class)tableViewClass
 {
-    return [CustomTableView class];
+    return self.isContainer ? [CustomTableView class] : [super tableViewClass];
 }
 
 - (void)emptyViewWillAppear:(SeaEmptyView *)view
@@ -99,7 +106,7 @@
             return;
         }
         
-        CGFloat maxOffsetY = self.tableView.contentSize.height - self.tableView.height;
+        CGFloat maxOffsetY = scrollView.contentSize.height - scrollView.height;
         CGFloat offset = contentOffset.y - maxOffsetY;
         
         //已经滑出顶部范围了，让子容器滑动
@@ -130,10 +137,12 @@
         }
         
         //滑到滚动容器了滚动容器
-        if(contentOffset.y <= 0 && self.tableView.contentOffset.y > 0){
+        if(contentOffset.y <= 0){
             scrollView.contentOffset = CGPointZero;
-            self.childScrollEnable = NO;
-            self.parentScrollEnable = YES;
+            if(self.tableView.contentOffset.y > 0){
+                self.childScrollEnable = NO;
+                self.parentScrollEnable = YES;
+            }
         }
     }
 }

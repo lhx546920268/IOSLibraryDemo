@@ -31,7 +31,7 @@
     
     self.tableView.clipsToBounds = NO;
     
-    SeaSearchBar *searchBar = [[SeaSearchBar alloc] initWithFrame:CGRectMake(0, 0, SeaScreenWidth, 45)];
+    SeaSearchBar *searchBar = [[SeaSearchBar alloc] initWithFrame:CGRectMake(0, 0, UIScreen.screenWidth, 45)];
     searchBar.placeholder = @"搜索一个查哈";
     searchBar.icon = [UIImage imageNamed:@"icon"];
     searchBar.delegate = self;
@@ -88,7 +88,7 @@
 ////        NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:searchBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
 ////        [self.view addConstraint:constraint];
 //
-//        NSLog(@"%f,%f", SeaScreenWidth, SeaScreenHeight);
+//        NSLog(@"%f,%f", UIScreen.screenWidth, SeaScreenHeight);
 //        self.searchBar = searchBar;
     }
 }

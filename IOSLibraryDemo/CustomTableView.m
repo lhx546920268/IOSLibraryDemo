@@ -10,8 +10,6 @@
 
 @interface CustomTableView()
 
-///第一个位置
-@property(nonatomic, assign) CGPoint firstPoint;
 
 @end
 
@@ -25,21 +23,8 @@
 
 - (UIView*)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    
     UIView *view = [super hitTest:point withEvent:event];
-    return [view isKindOfClass:[UIButton class]] ? view : self.hitTestHandler(view);
-//    if(self.hitTestHandler){
-//        if(CGPointEqualToPoint(self.firstPoint, CGPointZero)){
-//            self.firstPoint = point;
-//        }else{
-//            if(!CGPointEqualToPoint(self.firstPoint, point)){
-//                self.firstPoint = CGPointZero;
-//
-//            }
-//        }
-//    }
-//
-//    return [super hitTest:point withEvent:event];
+    return CGPointEqualToPoint(CGPointZero, [self.panGestureRecognizer translationInView:self]) ? view : self.hitTestHandler(view);
 }
 
 @end

@@ -11,6 +11,7 @@
 
 @interface NestedTableViewController : SeaTableViewController
 
-
+//
+@property(nonatomic, assign) BOOL isContainer;
 
 @end

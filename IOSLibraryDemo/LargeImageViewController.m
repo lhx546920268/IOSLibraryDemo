@@ -36,8 +36,8 @@
     [scrollView sea_insetsInSuperview:UIEdgeInsetsZero];
     
     UIImage *image = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"xx" ofType:@"png"]];
-    CGSize size = [image sea_fitWithSize:CGSizeMake(SeaScreenWidth, 0) type:SeaImageFitTypeWidth];
-    SeaTiledImageView *imageView = [[SeaTiledImageView alloc] initWithFrame:CGRectMake((SeaScreenWidth - size.width) / 2, 0, size.width, size.height)];
+    CGSize size = [image sea_fitWithSize:CGSizeMake(UIScreen.screenWidth, 0) type:SeaImageFitTypeWidth];
+    SeaTiledImageView *imageView = [[SeaTiledImageView alloc] initWithFrame:CGRectMake((UIScreen.screenWidth - size.width) / 2, 0, size.width, size.height)];
     imageView.image = image;
     [scrollView addSubview:imageView];
     self.imageView = imageView;
