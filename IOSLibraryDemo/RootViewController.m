@@ -32,6 +32,8 @@
 #import <objc/runtime.h>
 #import "RefreshViewController.h"
 #import "PolygonViewController.h"
+#import "SeaPhotosViewController.h"
+#import "SkeletonViewController.h"
 
 @interface Test1 : NSObject
 
@@ -113,7 +115,8 @@
                     @"嵌套scrollView",
                     @"hit test 测试",
                     @"刷新",
-                    @"多边形"];
+                    @"多边形",
+                    @"骨架"];
     
     [self registerClass:[UITableViewCell class]];
     [self initialization];
@@ -204,11 +207,8 @@
             [self sea_pushViewControllerUseTransitionDelegate:[DropDownMenuViewController new]];
             break;
         case 3 : {
-            SeaAlbumAssetsViewController *album = [SeaAlbumAssetsViewController new];
-            
-            SeaImageCropSettings *settings = [SeaImageCropSettings new];
-            settings.cropSize = CGSizeMake(UIScreen.screenWidth, UIScreen.screenWidth);
-            album.settings = settings;
+            SeaPhotosViewController *album = [SeaPhotosViewController new];
+            album.photosOptions.maxCount = 10;
             
             [self presentViewController:[album sea_createWithNavigationController] animated:YES completion:nil];
         }
@@ -362,6 +362,11 @@
         case 20 : {
             [self sea_pushViewControllerUseTransitionDelegate:[PolygonViewController new]];
         }
+            break;
+        case 21 : {
+            [self sea_pushViewControllerUseTransitionDelegate:[SkeletonViewController new]];
+        }
+            break;
         default:
             break;
     }

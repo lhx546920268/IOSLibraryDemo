@@ -50,6 +50,14 @@
 		10D6FAC0204E6E60008B201D /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 10D6FABF204E6E60008B201D /* test.html */; };
 		10DD3B2E2101766D00B12E13 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DD3B2D2101766D00B12E13 /* RefreshViewController.m */; };
 		10E3A51A20060BEF0062A23D /* MenuBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E3A51920060BEF0062A23D /* MenuBarViewController.m */; };
+		CEB7FA5322CDCDDB009662AC /* SkeletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA5222CDCDDB009662AC /* SkeletonViewController.m */; };
+		CEB7FA5722CDCF1A009662AC /* NormalSkeletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA5522CDCF1A009662AC /* NormalSkeletonViewController.m */; };
+		CEB7FA5822CDCF1A009662AC /* NormalSkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB7FA5622CDCF1A009662AC /* NormalSkeletonViewController.xib */; };
+		CEB7FA5A22CDD00C009662AC /* test_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEB7FA5922CDD00C009662AC /* test_1.jpg */; };
+		CEB7FA6522CDFA8F009662AC /* TableViewSkeletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA6422CDFA8F009662AC /* TableViewSkeletonViewController.m */; };
+		CEB7FA6922CDFB0A009662AC /* TableViewSkeletonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA6722CDFB0A009662AC /* TableViewSkeletonCell.m */; };
+		CEB7FA6A22CDFB0A009662AC /* TableViewSkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */; };
+		CED1519A22D33AA800EC70B2 /* TableViewSkeletonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,6 +133,19 @@
 		10DD3B2D2101766D00B12E13 /* RefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		10E3A51820060BEF0062A23D /* MenuBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuBarViewController.h; sourceTree = "<group>"; };
 		10E3A51920060BEF0062A23D /* MenuBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuBarViewController.m; sourceTree = "<group>"; };
+		CEB7FA5122CDCDDB009662AC /* SkeletonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkeletonViewController.h; sourceTree = "<group>"; };
+		CEB7FA5222CDCDDB009662AC /* SkeletonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkeletonViewController.m; sourceTree = "<group>"; };
+		CEB7FA5422CDCF1A009662AC /* NormalSkeletonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalSkeletonViewController.h; sourceTree = "<group>"; };
+		CEB7FA5522CDCF1A009662AC /* NormalSkeletonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalSkeletonViewController.m; sourceTree = "<group>"; };
+		CEB7FA5622CDCF1A009662AC /* NormalSkeletonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NormalSkeletonViewController.xib; sourceTree = "<group>"; };
+		CEB7FA5922CDD00C009662AC /* test_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test_1.jpg; sourceTree = "<group>"; };
+		CEB7FA6322CDFA8F009662AC /* TableViewSkeletonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewSkeletonViewController.h; sourceTree = "<group>"; };
+		CEB7FA6422CDFA8F009662AC /* TableViewSkeletonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewSkeletonViewController.m; sourceTree = "<group>"; };
+		CEB7FA6622CDFB0A009662AC /* TableViewSkeletonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewSkeletonCell.h; sourceTree = "<group>"; };
+		CEB7FA6722CDFB0A009662AC /* TableViewSkeletonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewSkeletonCell.m; sourceTree = "<group>"; };
+		CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewSkeletonCell.xib; sourceTree = "<group>"; };
+		CED1519822D33AA800EC70B2 /* TableViewSkeletonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewSkeletonHeader.h; sourceTree = "<group>"; };
+		CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewSkeletonHeader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,10 +180,12 @@
 		10B79AA31F9EDC3D005751D3 /* IOSLibraryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CEB7FA5022CDCDBD009662AC /* Skeleton */,
 				10AB90C920C546B900185FD8 /* 1.png */,
 				10AB90C020C53C8000185FD8 /* 1@2x.png */,
 				10AB90C120C53C8000185FD8 /* 2@2x.png */,
 				10AB90C220C53C8100185FD8 /* 3.png */,
+				CEB7FA5922CDD00C009662AC /* test_1.jpg */,
 				10AB90BF20C53C8000185FD8 /* 4.png */,
 				10AB90C720C53D0800185FD8 /* 5.jpg */,
 				109D7F2D20493B760050D1F7 /* xx.png */,
@@ -241,6 +264,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CEB7FA5022CDCDBD009662AC /* Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				CEB7FA5122CDCDDB009662AC /* SkeletonViewController.h */,
+				CEB7FA5222CDCDDB009662AC /* SkeletonViewController.m */,
+				CEB7FA5422CDCF1A009662AC /* NormalSkeletonViewController.h */,
+				CEB7FA5522CDCF1A009662AC /* NormalSkeletonViewController.m */,
+				CEB7FA5622CDCF1A009662AC /* NormalSkeletonViewController.xib */,
+				CEB7FA6322CDFA8F009662AC /* TableViewSkeletonViewController.h */,
+				CEB7FA6422CDFA8F009662AC /* TableViewSkeletonViewController.m */,
+				CEB7FA6622CDFB0A009662AC /* TableViewSkeletonCell.h */,
+				CEB7FA6722CDFB0A009662AC /* TableViewSkeletonCell.m */,
+				CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */,
+				CED1519822D33AA800EC70B2 /* TableViewSkeletonHeader.h */,
+				CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -306,6 +348,7 @@
 			files = (
 				10111B3E219C1D55007924F1 /* NestedTableViewCell.xib in Resources */,
 				10AB90C520C53C8100185FD8 /* 2@2x.png in Resources */,
+				CEB7FA5A22CDD00C009662AC /* test_1.jpg in Resources */,
 				10AB90C320C53C8100185FD8 /* 4.png in Resources */,
 				109D7F2E20493BBA0050D1F7 /* xx.png in Resources */,
 				10A277B2202809E70002692E /* CollectionReusableView.xib in Resources */,
@@ -313,9 +356,11 @@
 				1003F5F72044FD4C0097325F /* BannerViewController.xib in Resources */,
 				10B79AAE1F9EDC3E005751D3 /* Assets.xcassets in Resources */,
 				10AB90C820C53D0800185FD8 /* 5.jpg in Resources */,
+				CEB7FA6A22CDFB0A009662AC /* TableViewSkeletonCell.xib in Resources */,
 				104FD6152016E64900568B82 /* TransitionViewController.xib in Resources */,
 				10772EF82011D77C00CD47BE /* Dialog.xib in Resources */,
 				10AB90C620C53C8100185FD8 /* 3.png in Resources */,
+				CEB7FA5822CDCF1A009662AC /* NormalSkeletonViewController.xib in Resources */,
 				10D6FAC0204E6E60008B201D /* test.html in Resources */,
 				10AB90C420C53C8100185FD8 /* 1@2x.png in Resources */,
 				10AB90CA20C546B900185FD8 /* 1.png in Resources */,
@@ -329,9 +374,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB7FA5722CDCF1A009662AC /* NormalSkeletonViewController.m in Sources */,
 				10772EFB2011DBC200CD47BE /* DialogViewController.m in Sources */,
 				10D6FABE204E6DAF008B201D /* WebViewJSViewController.m in Sources */,
 				10BD7F5F207EF4AC0097F910 /* NestedTableViewController.m in Sources */,
+				CEB7FA6922CDFB0A009662AC /* TableViewSkeletonCell.m in Sources */,
+				CED1519A22D33AA800EC70B2 /* TableViewSkeletonHeader.m in Sources */,
+				CEB7FA5322CDCDDB009662AC /* SkeletonViewController.m in Sources */,
 				104FD6142016E64900568B82 /* TransitionViewController.m in Sources */,
 				1068E33820088DFE00707D11 /* DropDownMenuViewController.m in Sources */,
 				10C27442207B005900BC13EF /* EmptyViewController.m in Sources */,
@@ -340,6 +389,7 @@
 				103B00DD208F2E5D00DE97C9 /* HitTestViewController.m in Sources */,
 				109D7F2A20492D000050D1F7 /* LargeImageViewController.m in Sources */,
 				10772EEA2011BFD700CD47BE /* TabBar2ViewController.m in Sources */,
+				CEB7FA6522CDFA8F009662AC /* TableViewSkeletonViewController.m in Sources */,
 				1046660320070BDD006E7736 /* SubPageViewController.m in Sources */,
 				10AA3A3A2010328C00BF0643 /* ImageBrowseViewController.m in Sources */,
 				10772EED2011BFE400CD47BE /* TabBar3ViewController.m in Sources */,
