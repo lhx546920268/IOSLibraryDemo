@@ -9,6 +9,7 @@
 #import "SkeletonViewController.h"
 #import "NormalSkeletonViewController.h"
 #import "TableViewSkeletonViewController.h"
+#import "CollectionViewSkeletonViewController.h"
 
 @interface SkeletonViewController ()
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"骨架";
-    self.datas = @[@"普通视图", @"TableView"];
+    self.datas = @[@"普通视图", @"TableView", @"CollectionView"];
     
     [self initialization];
 }
@@ -56,6 +57,9 @@
             break;
         case 1 :
             [self.navigationController pushViewController:[TableViewSkeletonViewController new] animated:YES];
+            break;
+        case 2 :
+            [self.navigationController pushViewController:[CollectionViewSkeletonViewController new] animated:YES];
             break;
         default:
             break;

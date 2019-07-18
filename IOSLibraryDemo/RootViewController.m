@@ -209,6 +209,7 @@
         case 3 : {
             SeaPhotosViewController *album = [SeaPhotosViewController new];
             album.photosOptions.maxCount = 10;
+            album.photosOptions.intention = SeaPhotosIntentionMultiSelection;
             
             [self presentViewController:[album sea_createWithNavigationController] animated:YES completion:nil];
         }

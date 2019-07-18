@@ -58,6 +58,10 @@
 		CEB7FA6922CDFB0A009662AC /* TableViewSkeletonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA6722CDFB0A009662AC /* TableViewSkeletonCell.m */; };
 		CEB7FA6A22CDFB0A009662AC /* TableViewSkeletonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */; };
 		CED1519A22D33AA800EC70B2 /* TableViewSkeletonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */; };
+		CED1519D22D3406B00EC70B2 /* CollectionViewSkeletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED1519C22D3406B00EC70B2 /* CollectionViewSkeletonViewController.m */; };
+		CED151A222D340E500EC70B2 /* CollectionViewSkeletonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED151A122D340E500EC70B2 /* CollectionViewSkeletonCell.m */; };
+		CED151A622D3423700EC70B2 /* CollectionViewSkeletonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED151A422D3423700EC70B2 /* CollectionViewSkeletonHeader.m */; };
+		CED151A722D3423700EC70B2 /* CollectionViewSkeletonHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED151A522D3423700EC70B2 /* CollectionViewSkeletonHeader.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +150,13 @@
 		CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewSkeletonCell.xib; sourceTree = "<group>"; };
 		CED1519822D33AA800EC70B2 /* TableViewSkeletonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewSkeletonHeader.h; sourceTree = "<group>"; };
 		CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewSkeletonHeader.m; sourceTree = "<group>"; };
+		CED1519B22D3406B00EC70B2 /* CollectionViewSkeletonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewSkeletonViewController.h; sourceTree = "<group>"; };
+		CED1519C22D3406B00EC70B2 /* CollectionViewSkeletonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewSkeletonViewController.m; sourceTree = "<group>"; };
+		CED151A022D340E500EC70B2 /* CollectionViewSkeletonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewSkeletonCell.h; sourceTree = "<group>"; };
+		CED151A122D340E500EC70B2 /* CollectionViewSkeletonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewSkeletonCell.m; sourceTree = "<group>"; };
+		CED151A322D3423700EC70B2 /* CollectionViewSkeletonHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewSkeletonHeader.h; sourceTree = "<group>"; };
+		CED151A422D3423700EC70B2 /* CollectionViewSkeletonHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewSkeletonHeader.m; sourceTree = "<group>"; };
+		CED151A522D3423700EC70B2 /* CollectionViewSkeletonHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewSkeletonHeader.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +278,32 @@
 		CEB7FA5022CDCDBD009662AC /* Skeleton */ = {
 			isa = PBXGroup;
 			children = (
+				CED1519F22D340AF00EC70B2 /* Controller */,
+				CED1519E22D340AF00EC70B2 /* View */,
+			);
+			path = Skeleton;
+			sourceTree = "<group>";
+		};
+		CED1519E22D340AF00EC70B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB7FA6622CDFB0A009662AC /* TableViewSkeletonCell.h */,
+				CEB7FA6722CDFB0A009662AC /* TableViewSkeletonCell.m */,
+				CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */,
+				CED1519822D33AA800EC70B2 /* TableViewSkeletonHeader.h */,
+				CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */,
+				CED151A022D340E500EC70B2 /* CollectionViewSkeletonCell.h */,
+				CED151A122D340E500EC70B2 /* CollectionViewSkeletonCell.m */,
+				CED151A322D3423700EC70B2 /* CollectionViewSkeletonHeader.h */,
+				CED151A422D3423700EC70B2 /* CollectionViewSkeletonHeader.m */,
+				CED151A522D3423700EC70B2 /* CollectionViewSkeletonHeader.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CED1519F22D340AF00EC70B2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				CEB7FA5122CDCDDB009662AC /* SkeletonViewController.h */,
 				CEB7FA5222CDCDDB009662AC /* SkeletonViewController.m */,
 				CEB7FA5422CDCF1A009662AC /* NormalSkeletonViewController.h */,
@@ -274,13 +311,10 @@
 				CEB7FA5622CDCF1A009662AC /* NormalSkeletonViewController.xib */,
 				CEB7FA6322CDFA8F009662AC /* TableViewSkeletonViewController.h */,
 				CEB7FA6422CDFA8F009662AC /* TableViewSkeletonViewController.m */,
-				CEB7FA6622CDFB0A009662AC /* TableViewSkeletonCell.h */,
-				CEB7FA6722CDFB0A009662AC /* TableViewSkeletonCell.m */,
-				CEB7FA6822CDFB0A009662AC /* TableViewSkeletonCell.xib */,
-				CED1519822D33AA800EC70B2 /* TableViewSkeletonHeader.h */,
-				CED1519922D33AA800EC70B2 /* TableViewSkeletonHeader.m */,
+				CED1519B22D3406B00EC70B2 /* CollectionViewSkeletonViewController.h */,
+				CED1519C22D3406B00EC70B2 /* CollectionViewSkeletonViewController.m */,
 			);
-			path = Skeleton;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +395,7 @@
 				10772EF82011D77C00CD47BE /* Dialog.xib in Resources */,
 				10AB90C620C53C8100185FD8 /* 3.png in Resources */,
 				CEB7FA5822CDCF1A009662AC /* NormalSkeletonViewController.xib in Resources */,
+				CED151A722D3423700EC70B2 /* CollectionViewSkeletonHeader.xib in Resources */,
 				10D6FAC0204E6E60008B201D /* test.html in Resources */,
 				10AB90C420C53C8100185FD8 /* 1@2x.png in Resources */,
 				10AB90CA20C546B900185FD8 /* 1.png in Resources */,
@@ -377,10 +412,12 @@
 				CEB7FA5722CDCF1A009662AC /* NormalSkeletonViewController.m in Sources */,
 				10772EFB2011DBC200CD47BE /* DialogViewController.m in Sources */,
 				10D6FABE204E6DAF008B201D /* WebViewJSViewController.m in Sources */,
+				CED151A222D340E500EC70B2 /* CollectionViewSkeletonCell.m in Sources */,
 				10BD7F5F207EF4AC0097F910 /* NestedTableViewController.m in Sources */,
 				CEB7FA6922CDFB0A009662AC /* TableViewSkeletonCell.m in Sources */,
 				CED1519A22D33AA800EC70B2 /* TableViewSkeletonHeader.m in Sources */,
 				CEB7FA5322CDCDDB009662AC /* SkeletonViewController.m in Sources */,
+				CED1519D22D3406B00EC70B2 /* CollectionViewSkeletonViewController.m in Sources */,
 				104FD6142016E64900568B82 /* TransitionViewController.m in Sources */,
 				1068E33820088DFE00707D11 /* DropDownMenuViewController.m in Sources */,
 				10C27442207B005900BC13EF /* EmptyViewController.m in Sources */,
@@ -397,6 +434,7 @@
 				10B79AA61F9EDC3E005751D3 /* AppDelegate.m in Sources */,
 				1044A78A202163FD00679F9B /* FillLayoutViewController.m in Sources */,
 				10CB0A9E2005C5D00067ADDB /* RootViewController.m in Sources */,
+				CED151A622D3423700EC70B2 /* CollectionViewSkeletonHeader.m in Sources */,
 				10B03BB2207F64B0001856D5 /* CustomTableView.m in Sources */,
 				10772EF62011D76A00CD47BE /* Dialog.m in Sources */,
 				10A277B1202809E70002692E /* CollectionReusableView.m in Sources */,
