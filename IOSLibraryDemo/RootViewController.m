@@ -32,7 +32,7 @@
 #import <objc/runtime.h>
 #import "RefreshViewController.h"
 #import "PolygonViewController.h"
-#import "SeaPhotosViewController.h"
+#import "PhotosPickerViewController.h"
 #import "SkeletonViewController.h"
 
 @interface Test1 : NSObject
@@ -87,7 +87,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+   
     [Test1 test];
     [Test2 test];
     [Test3 test];
@@ -207,11 +207,7 @@
             [self sea_pushViewControllerUseTransitionDelegate:[DropDownMenuViewController new]];
             break;
         case 3 : {
-            SeaPhotosViewController *album = [SeaPhotosViewController new];
-            album.photosOptions.maxCount = 10;
-            album.photosOptions.intention = SeaPhotosIntentionMultiSelection;
-            
-            [self presentViewController:[album sea_createWithNavigationController] animated:YES completion:nil];
+            [self sea_pushViewControllerUseTransitionDelegate:[PhotosPickerViewController new]];
         }
             break;
         case 4 : {

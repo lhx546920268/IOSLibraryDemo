@@ -8,6 +8,7 @@
 
 #import "LargeImageViewController.h"
 #import <SeaTiledImageView.h>
+#import <SeaAlertController.h>
 
 @interface LargeImageViewController ()<UIScrollViewDelegate>
 
@@ -39,6 +40,8 @@
     CGSize size = [image sea_fitWithSize:CGSizeMake(UIScreen.screenWidth, 0) type:SeaImageFitTypeWidth];
     SeaTiledImageView *imageView = [[SeaTiledImageView alloc] initWithFrame:CGRectMake((UIScreen.screenWidth - size.width) / 2, 0, size.width, size.height)];
     imageView.image = image;
+    imageView.userInteractionEnabled = YES;
+    [imageView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)]];
     [scrollView addSubview:imageView];
     self.imageView = imageView;
     
@@ -63,6 +66,31 @@
     y = y < 0 ? 0 : y;
     
     _imageView.center = CGPointMake(x + _imageView.frame.size.width / 2.0, y + _imageView.frame.size.height / 2.0);
+}
+
+- (void)handleLongPress:(UILongPressGestureRecognizer*) longPress
+{
+    if(longPress.state == UIGestureRecognizerStateBegan){
+        SeaAlertController *alert = [SeaAlertController actionSheetWithTitle:@"是否保存图片到相册" message:nil otherButtonTitles:@[@"保存"]];
+        alert.selectionHandler = ^(NSUInteger index) {
+            [self saveImage];
+        };
+        
+        [alert show];
+    }
+}
+
+///保存图片
+- (void)saveImage
+{
+    self.sea_showNetworkActivity = YES;
+    UIImageWriteToSavedPhotosAlbum(self.imageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    self.sea_showNetworkActivity = NO;
+    [self sea_alertMsg:@"保存成功"];
 }
 
 @end

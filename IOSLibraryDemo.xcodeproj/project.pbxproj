@@ -50,6 +50,8 @@
 		10D6FAC0204E6E60008B201D /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 10D6FABF204E6E60008B201D /* test.html */; };
 		10DD3B2E2101766D00B12E13 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DD3B2D2101766D00B12E13 /* RefreshViewController.m */; };
 		10E3A51A20060BEF0062A23D /* MenuBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10E3A51920060BEF0062A23D /* MenuBarViewController.m */; };
+		CEB06FE322E16E7C00EA159A /* PhotosPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB06FE222E16E7C00EA159A /* PhotosPickerViewController.m */; };
+		CEB06FE622E16EE900EA159A /* PhotosPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB06FE522E16EE900EA159A /* PhotosPickerCollectionViewCell.m */; };
 		CEB7FA5322CDCDDB009662AC /* SkeletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA5222CDCDDB009662AC /* SkeletonViewController.m */; };
 		CEB7FA5722CDCF1A009662AC /* NormalSkeletonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB7FA5522CDCF1A009662AC /* NormalSkeletonViewController.m */; };
 		CEB7FA5822CDCF1A009662AC /* NormalSkeletonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEB7FA5622CDCF1A009662AC /* NormalSkeletonViewController.xib */; };
@@ -137,6 +139,10 @@
 		10DD3B2D2101766D00B12E13 /* RefreshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		10E3A51820060BEF0062A23D /* MenuBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuBarViewController.h; sourceTree = "<group>"; };
 		10E3A51920060BEF0062A23D /* MenuBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuBarViewController.m; sourceTree = "<group>"; };
+		CEB06FE122E16E7C00EA159A /* PhotosPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosPickerViewController.h; sourceTree = "<group>"; };
+		CEB06FE222E16E7C00EA159A /* PhotosPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosPickerViewController.m; sourceTree = "<group>"; };
+		CEB06FE422E16EE900EA159A /* PhotosPickerCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosPickerCollectionViewCell.h; sourceTree = "<group>"; };
+		CEB06FE522E16EE900EA159A /* PhotosPickerCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosPickerCollectionViewCell.m; sourceTree = "<group>"; };
 		CEB7FA5122CDCDDB009662AC /* SkeletonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SkeletonViewController.h; sourceTree = "<group>"; };
 		CEB7FA5222CDCDDB009662AC /* SkeletonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkeletonViewController.m; sourceTree = "<group>"; };
 		CEB7FA5422CDCF1A009662AC /* NormalSkeletonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalSkeletonViewController.h; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 		10B79AA31F9EDC3D005751D3 /* IOSLibraryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CEB06FDE22E16E4000EA159A /* Photos */,
 				CEB7FA5022CDCDBD009662AC /* Skeleton */,
 				10AB90C920C546B900185FD8 /* 1.png */,
 				10AB90C020C53C8000185FD8 /* 1@2x.png */,
@@ -273,6 +280,33 @@
 				107B0F0F1FD8D79E00F7B81F /* IOSLibrary.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEB06FDE22E16E4000EA159A /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				CEB06FDF22E16E4000EA159A /* Controller */,
+				CEB06FE022E16E4000EA159A /* View */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		CEB06FDF22E16E4000EA159A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEB06FE122E16E7C00EA159A /* PhotosPickerViewController.h */,
+				CEB06FE222E16E7C00EA159A /* PhotosPickerViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEB06FE022E16E4000EA159A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB06FE422E16EE900EA159A /* PhotosPickerCollectionViewCell.h */,
+				CEB06FE522E16EE900EA159A /* PhotosPickerCollectionViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CEB7FA5022CDCDBD009662AC /* Skeleton */ = {
@@ -430,10 +464,12 @@
 				1046660320070BDD006E7736 /* SubPageViewController.m in Sources */,
 				10AA3A3A2010328C00BF0643 /* ImageBrowseViewController.m in Sources */,
 				10772EED2011BFE400CD47BE /* TabBar3ViewController.m in Sources */,
+				CEB06FE322E16E7C00EA159A /* PhotosPickerViewController.m in Sources */,
 				10B79AB41F9EDC3E005751D3 /* main.m in Sources */,
 				10B79AA61F9EDC3E005751D3 /* AppDelegate.m in Sources */,
 				1044A78A202163FD00679F9B /* FillLayoutViewController.m in Sources */,
 				10CB0A9E2005C5D00067ADDB /* RootViewController.m in Sources */,
+				CEB06FE622E16EE900EA159A /* PhotosPickerCollectionViewCell.m in Sources */,
 				CED151A622D3423700EC70B2 /* CollectionViewSkeletonHeader.m in Sources */,
 				10B03BB2207F64B0001856D5 /* CustomTableView.m in Sources */,
 				10772EF62011D76A00CD47BE /* Dialog.m in Sources */,
