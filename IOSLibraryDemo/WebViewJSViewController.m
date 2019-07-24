@@ -37,12 +37,12 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
-    [self.webView evaluateJavaScript:@"ocRunJs([1,2,3])" completionHandler:^(id callback, NSError *error){
-        
-        NSLog(@"%@", error);
-        NSLog(@"%@", callback);
-    }];
-    NSLog(@"%@ -- %@", message.name, message.body);
+//    [self.webView evaluateJavaScript:@"ocRunJs([1,2,3])" completionHandler:^(id callback, NSError *error){
+//
+//        NSLog(@"%@", error);
+//        NSLog(@"%@", callback);
+//    }];
+    NSLog(@"%f", NSDate.date.timeIntervalSince1970 * 1000);
 }
 
 - (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler

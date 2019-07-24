@@ -18,9 +18,10 @@
                         function buttonClick()
                         {
                             // 调OC方法
-                            alert('123');
-                            var array = [1, 2, 3];
-                            window.webkit.messageHandlers.test.postMessage(array);
+                            setInterval(() => {
+                                       var array = [1, 2, 3];
+                                       window.webkit.messageHandlers.test.postMessage(array);
+                                       }, 10)
                         }
                         
                         function XHbuttonClick()
