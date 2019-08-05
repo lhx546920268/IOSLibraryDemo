@@ -25,6 +25,7 @@
     
     self.set = [NSMutableSet set];
     SeaCollectionViewFlowFillLayout *layout = [SeaCollectionViewFlowFillLayout new];
+    layout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5);
     
     self.layout = layout;
     
@@ -38,7 +39,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 100;
+    return 10;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -46,15 +47,12 @@
     return 20;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout*)collectionViewLayout;
-    return CGSizeMake((layout.collectionView.width - layout.minimumLineSpacing * 2) / 3, (layout.collectionView.width - layout.minimumLineSpacing * 2) / 3);
-}
-
 - (CGSize)collectionViewFlowFillLayout:(SeaCollectionViewFlowFillLayout *)layout itemSizeForIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((layout.collectionView.width - layout.minimumLineSpacing * 2) / 3, (layout.collectionView.width - layout.minimumLineSpacing * 2) / 3);
+    CGFloat size = (layout.collectionView.width - layout.minimumLineSpacing * 2 - layout.sectionInset.left - layout.sectionInset.right) / 3;
+    CGFloat margin = random() % 100;
+    
+    return CGSizeMake(size, size + margin);
 }
 
 - (BOOL)collectionViewFlowFillLayout:(SeaCollectionViewFlowFillLayout *)layout shouldStickHeaderAtSection:(NSInteger)section
@@ -89,6 +87,13 @@
     
 
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    NSLog(@"indexPath section = %ld, item = %ld", indexPath.section, indexPath.item);
 }
 
 @end
