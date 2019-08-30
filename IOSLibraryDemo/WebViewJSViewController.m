@@ -22,12 +22,12 @@
     
     self.webView.UIDelegate = self;
     
-    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"test"];
+    [self.webView.configuration.userContentController addScriptMessageHandler:self name:@"zegoPay"];
 }
 
 - (void)dealloc
 {
-    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"test"];
+    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"zegoPay"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,11 +37,11 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
-//    [self.webView evaluateJavaScript:@"ocRunJs([1,2,3])" completionHandler:^(id callback, NSError *error){
-//
-//        NSLog(@"%@", error);
-//        NSLog(@"%@", callback);
-//    }];
+    [self.webView evaluateJavaScript:@"ocRunJs([1,2,3])" completionHandler:^(id callback, NSError *error){
+
+        NSLog(@"%@", error);
+        NSLog(@"%@", callback);
+    }];
     NSLog(@"%f", NSDate.date.timeIntervalSince1970 * 1000);
 }
 

@@ -9,38 +9,7 @@
                 <meta name="description" content="">
                     <!--         引用外部文件，index.js，实现点击事件的方法实现   -->
                     <meta name="viewport" content="width=device-width; initial-scale=1.0">
-                        <script type="text/javascript">
-                        
-                        function ocRunJs(param){
-                            
-                            return param;
-                        }
-                        function buttonClick()
-                        {
-                            // 调OC方法
-                            setInterval(() => {
-                                       var array = [1, 2, 3];
-                                       window.webkit.messageHandlers.test.postMessage(array);
-                                       }, 10)
-                        }
-                        
-                        function XHbuttonClick()
-                        {
-                            testobject.ZTHpay();
-                        }
-                        
-                        function HbuttonClick()
-                        {
-                            // 调OC方法  顺便传递参数
-                            testobject.ZTHPassParameter("1123425255");
-                        }
-                        
-                        function ZTHbuttonClick()
-                        {
-                            // 调OC方法  顺便传递两个参数，比如，姓名，订单号
-                            testobject.ZTHTestParameteroneAndParametertwo("1123425255","ZTH");
-                        }
-                        </script>
+                       
                         </head>
     <!--    参数1:id  这个按钮的唯一标识，相当于OC中的UIButton *btn   那么这里的hallo就相当于btn，代表那个按钮，OC中说指向那个按钮的地址。
      比如我们OC设置按钮的背景色：btn.backgroundColor = [UIColor cyanColor];
@@ -49,6 +18,47 @@
      那么下面这句话的意思就是，创建一个按钮，按钮名字叫（点击button）,按钮的地址是（hallo），点击事件是（buttonClick()）
      楼主不是很会H5的知识，只能这么解释了。这么解释，是不是你想再这里写上JS代码，也一目了然了。。
      -->
+    <body>
+        <script type="text/javascript">
+            
+            function ocRunJs(param){
+                
+                return param;
+            }
+        function buttonClick()
+        {
+            // 调OC方法
+            var params = {
+                'appid': '',  //appid 授权用的 保留字段，可以先不传
+                'attach': '商户额外信息，回调会返回这个',
+                'goods_name': '商品名称',
+                'mch_id': '10001', //商户号
+                'notify_url': 'https://devtest.zegobird.com:11111/api/api/pay/app/zegopay/notify', //回调地址
+                'out_trade_no': '490619812913229049', //订号
+                'total_fee': 4000  //支付金额
+                
+            };
+           
+            window.webkit.messageHandlers['zegoPay'].postMessage(JSON.stringify(params));
+        }
+        
+        function XHbuttonClick()
+        {
+            alert('弹窗');
+        }
+        
+        function HbuttonClick()
+        {
+            // 调OC方法  顺便传递参数
+            testobject.ZTHPassParameter("1123425255");
+        }
+        
+        function ZTHbuttonClick()
+        {
+            // 调OC方法  顺便传递两个参数，比如，姓名，订单号
+            testobject.ZTHTestParameteroneAndParametertwo("1123425255","ZTH");
+        }
+        </script>
     <button id="hallo" onclick="buttonClick()"> 点击button</button>
     <p>这是一段文字</p>
     <a href="http://www.baidu.com">百度一下，你就知道</a>
